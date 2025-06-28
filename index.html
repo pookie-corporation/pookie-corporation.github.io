@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,40 +27,44 @@
               class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded mt-2">
         Enter
       </button>
-    </div><!-- Main Content -->
-<div id="mainContent" class="hidden">
-  <h2 class="text-2xl font-bold text-center mt-6 mb-4">💖 Book Your Time With Pookie 💖</h2>
+    </div>
 
-  <div class="bg-white p-4 rounded-xl shadow-xl mt-6">
-  <h2 class="text-2xl font-bold text-center mb-4">💖❤️‍🔥You are so pretty I'd do anything for you❤️‍🔥💖</h2>
-  <div class="w-full overflow-x-auto">
-    <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLSdZO2OozL8avQc62qs8SWIq_ES1YQek2i9oHk6Ga7O_9DBfSg/viewform?embedded=true"
-      class="w-[640px] max-w-full border-none rounded"
-      height="800"
-    ></iframe>
-  </div>
+    <!-- Main Content -->
+    <div id="mainContent" class="hidden">
+      <h2 class="text-2xl font-bold text-center mt-6 mb-4">💖 Book Your Time With Pookie 💖</h2>
+
+      <div class="bg-white p-4 rounded-xl shadow-xl mt-6">
+        <h2 class="text-2xl font-bold text-center mb-4">💖❤️‍🔥You are so pretty I'd do anything for you❤️‍🔥💖</h2>
+        <div class="w-full overflow-x-auto">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdZO2OozL8avQc62qs8SWIq_ES1YQek2i9oHk6Ga7O_9DBfSg/viewform?embedded=true"
+            class="w-[640px] max-w-full border-none rounded"
+            height="800"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="bg-white mt-6 p-4 rounded shadow">
+        <img src="https://github.com/pookie-corporation/pookie-corporation.github.io/blob/dd6ec83f0ca030ebad6a3730db808bee32ae2ccc/thankyou-card.png"
+             alt="Thank You Card"
+             class="rounded w-full" />
+      </div>
+    </div>
   </div>
 
-  <div class="bg-white mt-6 p-4 rounded shadow">
-    <img src="https://github.com/pookie-corporation/pookie-corporation.github.io/blob/dd6ec83f0ca030ebad6a3730db808bee32ae2ccc/thankyou-card.png" alt="Thank You Card" class="rounded w-full" />
-  </div>
-</div>
-
-  </div>  <script>
+  <script>
     const welcome = document.getElementById('welcome');
     const mainContent = document.getElementById('mainContent');
+
     function checkPassword() {
-  const password = document.getElementById('password').value;
-  if (password === 'pookielovesyou') {
-    welcome.classList.add('hidden');
-    mainContent.classList.remove('hidden');
-  } else {
-    alert('Wrong password. Try again!');
-  }
+      const password = document.getElementById('password').value;
+      if (password === 'pookielovesyou') {
+        welcome.classList.add('hidden');
+        mainContent.classList.remove('hidden');
+      } else {
+        alert('Wrong password. Try again!');
+      }
     }
-    }
-    }
-    }
-  </script></body>
+  </script>
+</body>
 </html>
