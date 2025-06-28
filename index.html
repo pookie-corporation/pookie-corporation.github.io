@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pookie Order</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-pink-100 text-gray-800 font-sans">
+  <div class="max-w-xl mx-auto p-6">
+    <div id="welcome" class="text-center space-y-4">
+      <h1 class="text-4xl font-bold">Welcome to the Pookie Portal 🧸</h1>
+      <p class="text-lg">This is a secret place to book your Pookie time 💕</p>
+      <input type="password" id="password" placeholder="Enter password..." class="p-2 border rounded w-full max-w-sm mx-auto block" />
+      <button onclick="checkPassword()" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded">Enter</button>
+    </div><div id="mainContent" class="hidden">
+  <h1 class="text-3xl font-bold text-center mb-4">Book Your Pookie 🧸</h1>
+  <form id="pookieForm" class="bg-white p-4 rounded shadow-md space-y-4">
+    <label class="block">
+      <span class="text-lg font-semibold">Choose Service:</span>
+      <select name="service" class="mt-1 block w-full p-2 border rounded" required>
+        <option>Voice Call</option>
+        <option>Video Call</option>
+        <option>Meet in Person</option>
+        <option>Send Me Over</option>
+        <option>Surprise Message</option>
+      </select>
+    </label>
+
+    <label class="block">
+      <span class="text-lg font-semibold">Pick a Date & Time:</span>
+      <input type="datetime-local" name="datetime" class="mt-1 block w-full p-2 border rounded" required />
+    </label>
+
+    <label class="block">
+      <span class="text-lg font-semibold">Add a Note (optional):</span>
+      <textarea name="note" rows="3" class="mt-1 block w-full p-2 border rounded" placeholder="Write something cute... 💖"></textarea>
+    </label>
+
+    <button type="submit" class="w-full bg-pink-500 text-white py-2 rounded font-bold hover:bg-pink-600">Place Order</button>
+  </form>
+
+  <div id="confirmation" class="hidden mt-6">
+    <h2 class="text-2xl font-bold text-center text-green-600">🎉 Order Placed!</h2>
+    <div class="bg-white mt-4 p-4 rounded shadow">
+      <img src="thankyou-card.jpg" alt="Thank You Card" class="rounded w-full" />
+      <img src="bill-card.jpg" alt="Order Bill" class="rounded w-full mt-4" />
+    </div>
+  </div>
+</div>
+
+  </div>  <script>
+    const welcome = document.getElementById('welcome');
+    const mainContent = document.getElementById('mainContent');
+
+    function checkPassword() {
+      const password = document.getElementById('password').value;
+      if (password === 'pookie123') {
+        welcome.classList.add('hidden');
+        mainContent.classList.remove('hidden');
+      } else {
+        alert('Wrong password. Try again!');
+      }
+    }
+
+    const form = document.getElementById('pookieForm');
+    const confirmation = document.getElementById('confirmation');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+      fetch('https://formspree.io/f/yourformid', {
+        method: 'POST',
+        body: data,
+        headers: {
+          Accept: 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          form.classList.add('hidden');
+          confirmation.classList.remove('hidden');
+        } else {
+          alert('There was a problem placing your order.');
+        }
+      });
+    });
+  </script></body>
+</html>
